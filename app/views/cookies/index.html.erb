@@ -1,0 +1,31 @@
+<div class="row header">
+  <div class="col-md-6"><h1>Cookies</h1></div>
+  <div class="col-md-6"><%= link_to raw('New Cookie'), new_cooky_path, :class => 'btn btn-success pull-right' %></div>
+</div>
+
+<% if notice %>
+  <p class="alert alert-danger"><%= notice %></p>
+<% end %>
+
+<div class="row">
+  <div class="col-md-2">Name</div>  
+  <div class="col-md-8">Description</div>  
+  <div class="col-md-1">Price</div>  
+  <div class="col-md-1"></div>  
+</div>
+
+<% @cookies.each do |cooky| %>
+  <% sale = cooky.on_sale ? "on-sale" : "normal" %>
+  <div class="<%= sale %>">
+    <div class="row">
+      <div class="col-md-2"><%= cooky.name %></div>  
+      <div class="col-md-8"><%= cooky.description %></div>  
+      <div class="col-md-1"><%= number_to_currency(cooky.price) %></div>  
+      <div class="col-md-1 text-right">
+        <%= link_to fa_icon("eye"), cooky %><br>
+        <%= link_to fa_icon("pencil"), edit_cooky_path(cooky) %><br>
+        <%= link_to fa_icon("close"), cooky, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>  
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class Cooky < ApplicationRecord
+end

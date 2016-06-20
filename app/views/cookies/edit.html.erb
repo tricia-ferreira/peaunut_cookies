@@ -1,0 +1,11 @@
+<div class="row header">
+  <div class="col-md-6"><h1>Edit Cookie</h1></div>
+  <div class="col-md-6">
+    <%= link_to 'View Cookie', @cooky, :class => 'btn btn-info pull-right' %>
+    <%= link_to raw('Back'), cookies_path, :class => 'btn btn-info pull-right' %>
+  </div>
+</div>
+
+<%= render 'form', cooky: @cooky %>
+
+
