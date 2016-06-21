@@ -1,8 +1,8 @@
 <div class="row header">
   <div class="col-md-6"><h1><%= @cooky.name %></h1></div>
   <div class="col-md-6">
-    <%= link_to 'Edit', edit_cooky_path(@cooky), :class => "btn btn-info pull-right" %>
-    <%= link_to raw('Back'), cookies_path, :class => 'btn btn-info pull-right' %>
+    <%= link_to 'Edit', edit_cooky_path(@cooky), :class => "btn btn-info pull-right", :data => {:"turbolinks-action" => "replace"} %>
+    <%= link_to raw('Back'), cookies_path, :class => 'btn btn-info pull-right', :data => {:"turbolinks-action" => "replace"}  %>
   </div>
 </div>
 

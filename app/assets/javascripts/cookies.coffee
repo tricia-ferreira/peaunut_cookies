@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+testingTurbolinks = (color) ->
+  $(".container-fluid").css({"background-color": color})
+
+$(document).on 'turbolinks:load', ->
+  console.log("It works on each visit!")
+  testingTurbolinks("#8E8E93")
