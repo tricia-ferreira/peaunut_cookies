@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
   belongs_to :cooky
-  has_many :messages, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

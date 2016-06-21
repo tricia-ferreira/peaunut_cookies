@@ -4,16 +4,19 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
+    @cooky = Cooky.find(params[:cooky_id])
     @reviews = Review.all
   end
 
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    @cooky = Cooky.find(params[:cooky_id])
   end
 
   # GET /reviews/new
   def new
+    @cooky = Cooky.find(params[:cooky_id])
     @review = Review.new
   end
 
@@ -24,11 +27,12 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
+    @cooky = Cooky.find(params[:cooky_id])
     @review = Review.new(review_params)
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to cooky_path(:id => @cooky.id), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -62,13 +66,12 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:name, :nickname, :comment, :rating)
+      params.require(:review).permit(:name, :nickname, :comment, :rating, :cooky_id)
     end
 end

@@ -1,14 +1,14 @@
-<%= simple_form_for(@review) do |f| %>
+<%= simple_form_for [@cooky, @review], :html => {:multipart => true}, defaults: { placeholder: false, hint: false } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :cooky_id, :as => :hidden, :input_html => {:value => @cooky.id} %>
     <%= f.input :name %>
     <%= f.input :nickname %>
-    <%= f.input :comment %>
     <%= f.input :rating %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => "btn btn-success fullwidth" %>
   </div>
 <% end %>

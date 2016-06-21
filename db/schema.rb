@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621075740) do
+ActiveRecord::Schema.define(version: 20160621135909) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+  end
 
   create_table "cookies", force: :cascade do |t|
     t.string   "name"
@@ -23,12 +31,13 @@ ActiveRecord::Schema.define(version: 20160621075740) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer  "cooky_id"
     t.string   "name"
     t.string   "nickname"
-    t.text     "comment"
     t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cooky_id"], name: "index_reviews_on_cooky_id"
   end
 
 end

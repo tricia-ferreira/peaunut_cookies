@@ -27,7 +27,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Review', new_review_path %>
+<%= link_to 'New Review', new_cooky_review_path(:cooky_id => @cooky.id) %>

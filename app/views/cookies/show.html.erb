@@ -26,3 +26,12 @@
     <td><%= number_to_currency(@cooky.price) %></td>
   </tr>
 </table>
+
+<h3>Reviews</h3>
+<% if (@cooky.reviews.present? rescue false) %>
+  <% @cooky.reviews.each do |review| %>
+    1
+  <% end %>
+<% else %>
+  <%= link_to 'Be the first to rate this cookie!', new_cooky_review_path(:cooky_id => @cooky.id), :class => "btn btn-info fullwidth" %>
+<% end %>
