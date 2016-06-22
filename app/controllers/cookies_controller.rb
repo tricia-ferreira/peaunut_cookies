@@ -10,6 +10,7 @@ class CookiesController < ApplicationController
   # GET /cookies/1
   # GET /cookies/1.json
   def show
+    # @cooky = CookyDecorator.new(@cooky)
   end
 
   # GET /cookies/new

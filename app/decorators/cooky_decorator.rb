@@ -1,5 +1,9 @@
-class CookyDecorator < Draper::Decorator
-  delegate_all
+class CookyDecorator < SimpleDelegator
+  # delegate_all
+  def initialize(cooky)
+    @cooky = cooky
+    super
+  end
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
@@ -11,7 +15,7 @@ class CookyDecorator < Draper::Decorator
   #   end
 
   def sale
-    cooky.on_sale ? "on-sale" : "normal"
+    @cooky.on_sale ? "on-sale" : "normal"
   end
 
 end

@@ -15,8 +15,8 @@
 </div>
 
 <% @cookies.each do |cooky| %>
-  <% sale = cooky.on_sale ? "on-sale" : "normal" %>
-  <div class="<%= sale %>">
+  <% cookie = cooky.decorate() %>
+  <div class="<%= cookie.sale %>">
     <div class="row">
       <div class="col-md-2"><%= cooky.name %></div>  
       <div class="col-md-8"><%= cooky.description %></div>  
