@@ -19,5 +19,23 @@ body {
 input[type="radio"], input[type="checkbox"] {
   width: initial;
   height: initial;
-  margin-top: 7px;
+  margin-top: 2px;
+}
+
+input, textarea {
+  border: 1px solid $gray-light;
+  width: 100%;
+  box-shadow: none;
+  outline: none;
+  padding: 10px 10px 9px;
+  border-radius: 6px;
+}
+
+textarea {
+  height: auto;
+}
+
+.radio, .checkbox {
+  margin-top: 0;
+  margin-bottom: 0;
 }
